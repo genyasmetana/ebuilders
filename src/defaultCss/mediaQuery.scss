@@ -1,0 +1,30 @@
+$screenSizes: ("xs": "320px", "sm":"768px", "md": "1024px", "lg": "1170px");
+
+@mixin media($maxOrMin, $size) {
+  @each $key, $value in $screenSizes {
+    @if $size == $key {
+      $size: $value;
+    }
+  }
+
+  @media only screen and (#{$maxOrMin}-width: $size) {
+    @content;
+  }
+}
+
+@mixin media-between($fromSize, $toSize) {
+  @each $key, $value in $screenSizes {
+    @if $fromSize == $key {
+      $fromSize: $value;
+    }
+
+    @if $toSize == $key {
+      $toSize: $value;
+    }
+  }
+
+
+  @media only screen and (min-width: $fromSize) and (max-width: $toSize) {
+    @content;
+  }
+}

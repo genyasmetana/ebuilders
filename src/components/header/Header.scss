@@ -1,0 +1,16 @@
+@import "../../defaultCss/variables";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+
+  color: var(--white-color);
+  background-color: var(--main-background-color);
+
+  .header-user-details {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}

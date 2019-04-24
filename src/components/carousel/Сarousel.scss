@@ -1,0 +1,99 @@
+@import "../../defaultCss/variables";
+
+.carousel {
+  position: relative;
+  margin: 0 24px;
+
+  .carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-checkbox {
+    &:checked + .carousel-item {
+      position: static;
+      opacity: 1;
+    }
+  }
+}
+
+.carousel-item {
+  position: absolute;
+
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.carousel-img {
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+.carousel-control {
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  display: none;
+  font-size: 40px;
+  line-height: 35px;
+
+  color: var(--white-color);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--carousel-controls-buttons);
+
+  &.prev {
+    left: 2%;
+  }
+
+  &.next {
+    right: 2%;
+  }
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3 {
+  display: block;
+}
+
+.carousel-list {
+  left: 0;
+  right: 0;
+  bottom: 2%;
+  z-index: 10;
+  position: absolute;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  list-style: none;
+
+  .carousel-indicator {
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
+
+.carousel-bullet {
+  display: block;
+
+  color: var(--white-color);
+  cursor: pointer;
+  font-size: 35px;
+}
+
+#carousel-1:checked ~ .control-1 ~ .carousel-list li:nth-child(1) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-list li:nth-child(2) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-list li:nth-child(3) .carousel-bullet {
+  color: var(--carousel-controls-color);
+}

@@ -1,0 +1,22 @@
+@import "./variables";
+
+.button {
+  border-radius: 5px;
+  border: 1px solid var(--button-bg-color);
+  background-color: var(--button-bg-color);
+  color: var(--white-color);
+  display: inline-block;
+  padding: 0.5em 1.3em;
+  text-align: center;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+
+  &--large {
+    max-width: 300px;
+    width: 100%;
+  }
+}
