@@ -7,6 +7,7 @@ class SignIn extends Component {
   state = {
     login: '',
     password: '',
+    token: null,
   };
 
   onSubmit = event => {

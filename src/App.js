@@ -29,10 +29,10 @@ class App extends Component {
 
   signIn = user => {
     let result = null;
-    let savedUser = localStorage.getItem('user');
+    let savedUser = JSON.parse(localStorage.getItem('user'));
 
     if (savedUser) {
-      if (JSON.stringify(user) === savedUser) {
+      if (savedUser.login === user.login && savedUser.password === user.password) {
         result = true;
       } else {
         result = false;
@@ -41,9 +41,14 @@ class App extends Component {
 
     switch (result) {
       case true:
-        savedUser = JSON.parse(savedUser);
         toastr.success(`Successfully signed in as ${ savedUser.login }`, 'Success');
-        this.setState({ user: savedUser }, () => {
+        this.setState({
+          user: {
+            ...savedUser,
+            token: true,
+          },
+        }, () => {
+          localStorage.setItem('user', JSON.stringify(this.state.user));
           this.props.history.push('/');
         });
         break;
@@ -67,11 +72,18 @@ class App extends Component {
   };
 
   logout = () => {
-    localStorage.removeItem('user');
-    this.setState({ user: null }, () => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        token: false,
+      },
+    }, () => {
       toastr.success('You have successfully logged out!', 'Success');
+      localStorage.setItem('user', JSON.stringify(this.state.user));
+
       this.props.history.push('/signin');
     });
+    console.log(this.state)
   };
 
   render() {

@@ -4,10 +4,11 @@ before start you need:
 - install npm package manager
 
 In project directory:
- - run npm install script in your command line or terminal to install dependencies 
+ - in this folder open command line or terminal
+ - run npm install script in command line to install dependencies 
  - run npm start (to start local server)
 
 ## Production Build
 
  - In this directory run script "npm run build"
- - It bundles React App in production mode. The build is minified. Your app is ready to be deployed!
+ - It bundles React App in production mode. The build is minified.
