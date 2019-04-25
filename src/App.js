@@ -45,7 +45,7 @@ class App extends Component {
         this.setState({
           user: {
             ...savedUser,
-            token: true,
+            token: 'AAASSSDDD',
           },
         }, () => {
           localStorage.setItem('user', JSON.stringify(this.state.user));
@@ -72,18 +72,10 @@ class App extends Component {
   };
 
   logout = () => {
-    this.setState({
-      user: {
-        ...this.state.user,
-        token: false,
-      },
-    }, () => {
-      toastr.success('You have successfully logged out!', 'Success');
-      localStorage.setItem('user', JSON.stringify(this.state.user));
-
-      this.props.history.push('/signin');
-    });
-    console.log(this.state)
+    localStorage.setItem('user', JSON.stringify(
+      Object.assign({}, this.state.user, { token: '' }),
+    ));
+    this.props.history.push('/signin');
   };
 
   render() {

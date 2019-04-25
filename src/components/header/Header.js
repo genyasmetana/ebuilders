@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <header className="header">
       <span className="header-user-details">
-        { props.userName.login } &nbsp;
+        { props.userName.login }, &nbsp;
       </span>
       <span>
         Welcome to our Site

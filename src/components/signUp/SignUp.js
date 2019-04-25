@@ -23,7 +23,7 @@ class SignUp extends Component {
     this.props.signUp({
       login: this.state.login,
       password: this.state.password,
-      token: true,
+      token: 'AAASSSDDD',
     });
   };
 
