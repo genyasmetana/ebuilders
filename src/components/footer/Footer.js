@@ -15,8 +15,9 @@ const Footer = (props) => {
   );
 };
 
-export default Footer;
-
 Footer.propTypes = {
   history: PropTypes.object,
 };
+
+export default Footer;
+

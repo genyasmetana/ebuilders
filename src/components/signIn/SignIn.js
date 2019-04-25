@@ -71,8 +71,8 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
-
 SignIn.propTypes = {
   signIn: PropTypes.func,
 };
+
+export default SignIn;

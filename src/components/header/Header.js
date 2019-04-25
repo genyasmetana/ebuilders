@@ -15,10 +15,10 @@ const Header = (props) => {
   );
 };
 
-export default Header;
-
 Header.propTypes = {
   userName: PropTypes.shape({
     login: PropTypes.string.isRequired,
   }),
 };
+
+export default Header;

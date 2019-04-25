@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
+import Logout from './components/Logout';
 import SignIn from './components/signIn/SignIn';
 import SignUp from './components/signUp/SignUp';
-import HomeComponent from './components/home/HomeComponent';
-import Logout from './components/Logout';
 import PrivateRoute from './components/PrivateRoute';
+import HomeComponent from './components/home/HomeComponent';
 import './App.scss';
-import './defaultCss/buttons.scss';
+import './assets/css/buttons.scss';
 
 import toastr from 'toastr';
 import 'toastr/build/toastr.css';
@@ -72,6 +72,7 @@ class App extends Component {
   };
 
   logout = () => {
+    toastr.success('You have successfully logged out!', 'Success');
     localStorage.setItem('user', JSON.stringify(
       Object.assign({}, this.state.user, { token: '' }),
     ));
